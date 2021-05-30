@@ -25,10 +25,18 @@ const App = () => {
     },
   ];
 
+  const addExpenseHandler = (data) => {
+    const expenseData = {
+      ...data,
+      id: Math.random().toString(),
+    };
+    console.log(expenseData);
+  };
+
   return (
     <div>
-      <NewExpense />
-      <Expenses expenses={expenses} />;
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses items={expenses} />;
     </div>
   );
 };
